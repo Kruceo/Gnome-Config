@@ -1,0 +1,2 @@
+echo "[INFO] Setting up dark theme"
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'

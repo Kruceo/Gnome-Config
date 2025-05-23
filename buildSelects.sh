@@ -1,9 +1,15 @@
 cat init.sh > config.sh
 echo " " >> config.sh
+echo "# PARTS" >> config.sh
 
-for file in $(ls -1v ./parts); do
+parts=(
+    part10.sh
+)
+
+for file in "${parts[@]}"; do
+    echo $file
     cat ./parts/$file >> config.sh
     echo " " >> config.sh
 done
 
-bun fileReplacer.js
+bun test.ts

@@ -1,7 +1,5 @@
 echo "[INFO] Removing default backgrounds"
-
 sudo rm /usr/share/backgrounds/* -r
-sudo mkdir /usr/share/backgrounds/kruceo
 sudo rm /usr/share/gnome-background-properties/*.xml
 
 mkdir images-temp
