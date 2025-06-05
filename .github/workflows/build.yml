@@ -2,7 +2,7 @@ name: Build and Release
 
 on:
   push:
-    branches: main
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -17,33 +17,34 @@ jobs:
     steps:
       - name: Clone
         uses: actions/checkout@v3
-      
+
+      - name: Generate Tag name
+        id: gen-tag-name
+        run: echo "tag=$(uuidgen)" >> $GITHUB_OUTPUT
 
       - uses: oven-sh/setup-bun@v2
+
       - name: Create Release
         id: create-release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: latest # Tag that triggered the workflow
+          tag_name: ${{ steps.gen-tag-name.outputs.tag }}
           release_name: Latest
           body: "What's new?"
           draft: false
           prerelease: false
-      
+
       - name: Build
-        id: upload
-        run:
-          bash build.sh
+        run: bash build.sh
 
       - name: Upload Asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{steps.create-release.outputs.upload_url}}
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
           asset_path: ./config.sh
           asset_name: config.sh
           asset_content_type: application/octet-stream
-        

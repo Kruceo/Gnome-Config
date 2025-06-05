@@ -2,10 +2,6 @@
 
 ORIGINAL_PATH=$(realpath .)
 
-
-#!/bin/bash
-
-# Lista de pacotes a serem instalados
 packages=(
   zip
   meson
@@ -18,18 +14,15 @@ packages=(
   wget
 )
 
-
-# Função para verificar se um pacote está instalado
 is_installed() {
   pacman -Q "$1" &>/dev/null
 }
 
-# Instala apenas os pacotes que ainda não estão instalados
 for pkg in "${packages[@]}"; do
   if is_installed "$pkg"; then
-    echo "✔️  $pkg já está instalado"
+    echo "[INFO] $pkg already installed"
   else
-    echo "➕ Instalando $pkg..."
+    echo "[INFO] $pkg not installed"
     sudo pacman -S --noconfirm "$pkg"
   fi
 done
@@ -55,12 +48,6 @@ else
     fi
 fi
 
-flatpak install -y flathub com.vivaldi.Vivaldi
-flatpak install -y flathub org.onlyoffice.desktopeditors
-flatpak install -y flathub com.usebottles.bottles
-flatpak install -y flathub org.virt_manager.virt-manager
-flatpak install -y flathub org.inkscape.Inkscape
-
 if command -v bun --version >/dev/null 2>&1; then
   echo "[INFO] Bun.js is available"
 else
@@ -74,8 +61,7 @@ fi
 mkdir -p tmppath/bin
 export PATH=$PATH:$(realpath tmppath/bin)
 echo \#!/bin/bash  >  tmppath/bin/sass
-echo echo \$1 >> tmppath/bin/sass
-echo echo \$2 >> tmppath/bin/sass
-echo echo \$3 >> tmppath/bin/sass
 echo "bunx --bun sass \$@" >> tmppath/bin/sass
 chmod +x tmppath/bin/sass
+
+ALL_EXTENSIONS="'default_none'"
