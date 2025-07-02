@@ -3,7 +3,7 @@ echo " " >> config.sh
 echo "# PARTS" >> config.sh
 
 parts=(
-    part10.sh
+   7.dock.sh
 )
 
 for file in "${parts[@]}"; do
@@ -12,4 +12,4 @@ for file in "${parts[@]}"; do
     echo " " >> config.sh
 done
 
-bun test.ts
+bun fileReplacer.js
