@@ -1,4 +1,4 @@
-# Personal config for Arch Linux and GNOME enviroment
+# Personal config for Arch Linux and GNOME environment
 
 Feel free to fork it and use as template.
 
