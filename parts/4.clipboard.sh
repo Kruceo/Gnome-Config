@@ -6,7 +6,6 @@ cd ~/.local/share/gnome-shell/extensions/ && \
   make
 
 gnome-extensions enable clipboard-history@alexsaveau.dev
-cd $ORIGINAL_PATH
 dconf load /org/gnome/shell/extensions/clipboard-history/ < configs/clipboard-history.conf
 
 ALL_EXTENSIONS="$ALL_EXTENSIONS,'clipboard-history@alexsaveau.dev'"

@@ -6,7 +6,6 @@ make build
 echo "[INFO] transparent tool bar build complete"
 gnome-extensions install ./build/transparent-top-bar@com.ftpix.zip
 gnome-extensions enable transparent-top-bar@ftpix.com
-cd $ORIGINAL_PATH
 dconf load /com/ftpix/transparentbar/ < configs/transparent-top-bar.conf
 
 ALL_EXTENSIONS="$ALL_EXTENSIONS,'transparent-top-bar@ftpix.com'"

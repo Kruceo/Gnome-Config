@@ -8,8 +8,6 @@ make install
 echo "[INFO] Dash to dock build and install complete"
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
 ALL_EXTENSIONS="$ALL_EXTENSIONS,'dash-to-dock@micxgx.gmail.com'"
-
-cd $ORIGINAL_PATH
 dconf load /org/gnome/shell/extensions/dash-to-dock/ < configs/dash-to-dock.conf
 
 
