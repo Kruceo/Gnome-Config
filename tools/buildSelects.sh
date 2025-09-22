@@ -1,9 +1,9 @@
-cat init.sh > config.sh
 echo " " >> config.sh
 echo "# PARTS" >> config.sh
 
 parts=(
-   7.dock.sh
+   18.emoji.sh
+   99.enable-extensions.sh
 )
 
 for file in "${parts[@]}"; do
@@ -12,4 +12,4 @@ for file in "${parts[@]}"; do
     echo " " >> config.sh
 done
 
-bun fileReplacer.js
+bun tools/fileReplacer.js config.sh

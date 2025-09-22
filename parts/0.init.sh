@@ -1,6 +1,6 @@
-#!/bin/bash
-
 ORIGINAL_PATH=$(realpath .)
+
+sudo pacman -Syu --noconfirm
 
 packages=(
   zip

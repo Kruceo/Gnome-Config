@@ -1,7 +1,5 @@
-echo "[INFO] Setting fake keybind for [Super+V]"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Show Notification Override'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'true'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Super>v'
+echo "[INFO] Removing default keybind for [Super+V]"
+gsettings set org.gnome.shell.keybindings toggle-message-tray "[]"
 
 echo "[INFO] Setting keybind for [Super+.]"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name 'Show emoji picker'
