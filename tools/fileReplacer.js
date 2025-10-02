@@ -12,8 +12,10 @@ for (const line of input) {
         continue
     }
 
-    const file = fs.readFileSync(match[2],"utf8").replace(/'/g,"\\'").replace(/\n/g,"\\n")
+    const file = fs.readFileSync(match[2], "utf8")
+        .replace(/'/g, "\\'")
+        .replace(/\n/g, "\\n")
     buffer += `echo $'${file}' | ${match[1]}\n\n`
 }
 
-fs.writeFileSync(filePath,buffer)
+fs.writeFileSync(filePath, buffer)

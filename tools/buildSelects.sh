@@ -1,9 +1,11 @@
-echo " " >> config.sh
-echo "# PARTS" >> config.sh
+echo "" > config.sh
 
 parts=(
-   18.emoji.sh
-   99.enable-extensions.sh
+    0.init.sh
+    18.emoji.sh
+    11.clipboard.sh
+    13.trayicons.sh
+    99.enable-extensions.sh
 )
 
 for file in "${parts[@]}"; do
